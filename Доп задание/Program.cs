@@ -27,14 +27,11 @@ namespace Доп_задание
         {
             if (divisor != 0)
             {
-                goto Label;
+                return (double)dividend / divisor;
             }
-            else
-            {
-                Console.WriteLine("На нуль делить нельзя!");
-            }
-            Label:
-            return (double)dividend / divisor;
+            
+            Console.WriteLine("На нуль делить нельзя!");
+            return 0; 
         }
 
         static void Main(string[] args)
@@ -47,29 +44,29 @@ namespace Доп_задание
             int operand2 = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("Введите знак арифметической операции");
-            var sign = Console.ReadLine();
+            var sign = Console.ReadKey().KeyChar;
             
             switch (sign)
             {
-                case "+":
+                case '+':
                     {
                         int sum = Add(operand1, operand2);
                         Console.WriteLine("{0} + {1} = {2}", operand1, operand2, sum);
                         break;
                     }
-                case "-":
+                case '-':
                     {
                         int sub = Sub(operand1, operand2);
                         Console.WriteLine("{0} - {1} = {2}", operand1, operand2, sub);
                         break;
                     }
-                case "*":
+                case '*':
                     {
                         int mul = Mul(operand1, operand2);
                         Console.WriteLine("{0} * {1} = {2}", operand1, operand2, mul);
                         break;
                     }
-                case "/":
+                case '/':
                     {
                         if (operand2 != 0)
                         {
@@ -93,7 +90,7 @@ namespace Доп_задание
             Console.WriteLine("Хотите-ли Вы выполнить еще одну операцию? y/n");
             string answer = Convert.ToString(Console.ReadLine());                       
 
-            if (answer = y)
+            if (answer.Equals("y"))
             {
                 goto Label;
             }
@@ -103,7 +100,6 @@ namespace Доп_задание
             }  
 
             Console.ReadKey();
-
         }
     }
 }
