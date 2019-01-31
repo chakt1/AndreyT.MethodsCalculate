@@ -29,77 +29,82 @@ namespace Доп_задание
             {
                 return (double)dividend / divisor;
             }
-            
+
             Console.WriteLine("На нуль делить нельзя!");
-            return 0; 
+            return 0;
         }
 
         static void Main(string[] args)
         {
-            Label:
-            Console.Write("Введите 1-е число: ");
-            int operand1 = Convert.ToInt32(Console.ReadLine());
-
-            Console.Write("Введите 2-е число: ");
-            int operand2 = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("Введите знак арифметической операции");
-            var sign = Console.ReadKey().KeyChar;
-            
-            switch (sign)
+            var answer = string.Empty;
+            while (answer != "n")
             {
-                case '+':
-                    {
-                        int sum = Add(operand1, operand2);
-                        Console.WriteLine("{0} + {1} = {2}", operand1, operand2, sum);
-                        break;
-                    }
-                case '-':
-                    {
-                        int sub = Sub(operand1, operand2);
-                        Console.WriteLine("{0} - {1} = {2}", operand1, operand2, sub);
-                        break;
-                    }
-                case '*':
-                    {
-                        int mul = Mul(operand1, operand2);
-                        Console.WriteLine("{0} * {1} = {2}", operand1, operand2, mul);
-                        break;
-                    }
-                case '/':
-                    {
-                        if (operand2 != 0)
+                //Label:
+                Console.Write("Введите 1-е число: ");
+                int operand1 = Convert.ToInt32(Console.ReadLine());
+
+                Console.Write("Введите 2-е число: ");
+                int operand2 = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine("Введите знак арифметической операции");
+                var sign = Console.ReadKey().KeyChar;
+
+                switch (sign)
+                {
+                    case '+':
                         {
-                            double div = Div(operand1, operand2);
-                            Console.WriteLine("{0} / {1} = {2}", operand1, operand2, div);
+                            int sum = Add(operand1, operand2);
+                            Console.WriteLine("{0} + {1} = {2}", operand1, operand2, sum);
+                            break;
                         }
-                        else
+                    case '-':
                         {
-                            double div = Div(operand1, operand2);
-                            Console.WriteLine();
-                        }    
-                        break;
-                    }
-                default:
-                    {
-                        Console.WriteLine("Вы ввели неправильную команду");
-                        break;
-                    }
+                            int sub = Sub(operand1, operand2);
+                            Console.WriteLine("{0} - {1} = {2}", operand1, operand2, sub);
+                            break;
+                        }
+                    case '*':
+                        {
+                            int mul = Mul(operand1, operand2);
+                            Console.WriteLine("{0} * {1} = {2}", operand1, operand2, mul);
+                            break;
+                        }
+                    case '/':
+                        {
+                            if (operand2 != 0)
+                            {
+                                double div = Div(operand1, operand2);
+                                Console.WriteLine("{0} / {1} = {2}", operand1, operand2, div);
+                            }
+                            else
+                            {
+                                double div = Div(operand1, operand2);
+                                Console.WriteLine();
+                            }
+                            break;
+                        }
+                    default:
+                        {
+                            Console.WriteLine("Вы ввели неправильную команду");
+                            break;
+                        }
+                }
+
+                Console.WriteLine("Хотите-ли Вы выполнить еще одну операцию? y/n");
+                answer = Convert.ToString(Console.ReadLine());
             }
 
-            Console.WriteLine("Хотите-ли Вы выполнить еще одну операцию? y/n");
-            string answer = Convert.ToString(Console.ReadLine());                       
+            Console.WriteLine("До свидания!");
+            //if (answer.Equals("y"))
+            //{
+            //    goto Label;
+            //}
+            //else
+            //{
+            //    Console.WriteLine("До свидания!");
+            //}  
 
-            if (answer.Equals("y"))
-            {
-                goto Label;
-            }
-            else
-            {
-                Console.WriteLine("До свидания!");
-            }  
-
-            Console.ReadKey();
+            //Console.ReadKey();
         }
     }
 }
