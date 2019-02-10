@@ -28,21 +28,21 @@ namespace TeachersSolution
         static int[] SubArray(int[] array, int index, int count)
         {
             int[] array1 = new int[count];
-            int k = 0;
+            //int k = 0;
 
             for (int i = 0; i < array1.Length; i++)
             {
                 if (array.Length > index)
                 {
-                    array1[k] = array[index];
+                    array1[i] = array[index];
                 }
                 else
                 {
-                    array1[k] = 1;
+                    array1[i] = 1;
                 }
 
                 index++;
-                k++;
+               // k++;
             }
 
             return array1;
@@ -58,7 +58,6 @@ namespace TeachersSolution
                 array[i] = i * 2;
             }
 
-
             Console.Write("Введите индекс массива:");
             int index = Convert.ToInt32(Console.ReadLine());
 
@@ -69,7 +68,7 @@ namespace TeachersSolution
 
             for (int i = 0; i < array.Length; i++)
             {
-                Console.Write(array[i]);
+                Console.Write(array[i] + " ");
             }
 
             array = new int[10];
@@ -86,7 +85,7 @@ namespace TeachersSolution
 
             for (int i = 0; i < array.Length; i++)
             {
-                Console.Write(array[i]);
+                Console.Write(array[i] + ",");
             }
 
             // Delay.

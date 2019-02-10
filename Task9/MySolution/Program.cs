@@ -21,12 +21,12 @@ namespace MySolution
             }
         }
 
-        static int[] SubArray(ref int[] array, int index, int count)
+        static int[] SubArray(int[] array, int index, int count)
         {
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = i * 2;
-            }
+            //for (int i = 0; i < array.Length; i++)
+            //{
+            //    array[i] = i * 2;
+            //}
 
             if (index + count < array.Length)
             {
@@ -54,21 +54,34 @@ namespace MySolution
 
         static void Main(string[] args)
         {
-            Console.Write("Введите количество элементов массива: ");
-            int[] array = new int[Convert.ToInt32(Console.ReadLine())];
+            Console.Write("Type oil count: ");
+            var oil = Convert.ToInt32(Console.ReadLine());
 
-            MyReverse(array);
-            Console.WriteLine(new string('-', 40));
+            var car = new Car(0.1);
+            Console.WriteLine("Km : " + car.ReturnDistance(oil));
 
-            Console.Write("Введите индекс, начиная с которого будут выводиться элементы массива: ");
-            int index = Convert.ToInt32(Console.ReadLine());
+            var car2 = new Car(0.2);
+            Console.WriteLine("Km : " + car2.ReturnDistance(oil));
 
-            Console.Write("Введите количество выводимых элементов: ");
-            int count = Convert.ToInt32(Console.ReadLine());
 
-            SubArray(ref array, index, count);
 
-            Console.ReadKey();
+            //MyReverse(array);
+            //Console.WriteLine(new string('-', 40));
+
+            //Console.Write("Введите индекс, начиная с которого будут выводиться элементы массива: ");
+            //int index = Convert.ToInt32(Console.ReadLine());
+
+            //Console.Write("Введите количество выводимых элементов: ");
+            //int count = Convert.ToInt32(Console.ReadLine());
+
+            ////array[0] = 100;
+            ////array[1] = 110;
+            ////array[2] = 130;
+            ////array[3] = 140;
+
+            //var newArray = SubArray(array, index, count);
+
+            //Console.ReadKey();
         }
     }
 }
